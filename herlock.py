@@ -61,35 +61,35 @@ async def repo(_, message):
 
 @herlock.on_message(filters.command("help") & ~filters.edited)
 async def start(_, message):
-    await luna.send_chat_action(message.chat.id, "typing")
+    await herlock.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("Noldu Yardıma mı ihtiyacın var ü")
 
 
 @herlock.on_message(filters.command("start") & ~filters.edited)
 async def start(_, message):
-    await luna.send_chat_action(message.chat.id, "typing")
+    await herlock.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("**Merhaba** [Dostum](tg://settings) Ben @SakirBey1 Tarafından Oluşturulan ChatBotum \n/komuts")
 
 
 @herlock.on_message(filters.command("komuts") & ~filters.edited)
 async def start(_, message):
-    await luna.send_chat_action(message.chat.id, "typing")
+    await herlock.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("**HerusChatBot Komuts Bölümü**\n=> /repo \n=> /help \n=>/developer \n => /herus")
 
 
 @herlock.on_message(filters.command("developer") & ~filters.edited)
 async def start(_, message):
-    await luna.send_chat_action(message.chat.id, "typing")
+    await herlock.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("Sahibim Ve Geliştiricim @SakirBey1 ;)\n✨")
 
 
 @herlock.on_message(filters.command("herus") & ~filters.edited)
 async def start(_, message):
-    await luna.send_chat_action(message.chat.id, "typing")
+    await herlock.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("**Merhaba Ben Herus** \n@SakirBey1 Tarafından Günden Güne Geliştirilen Ve En Eğlenceli Bir ChatBotum Sizde Bota Eklenmesi İstediğiniz Özellikleri Sahibime Yazarak İlete Bilirsiniz Ayrıca Sahibim Benden Başka Bi Sürü Grub Botları Geliştiriyor @SakirBey2 Kanalına Bir Göz Atın Derim ;) \nSakirBey")
 
