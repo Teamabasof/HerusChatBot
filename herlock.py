@@ -30,7 +30,7 @@ async def herlockQuery(query: str, user_id: int):
         if LANGUAGE == "tr"
         else (await arq.translate(query, "tr")).result.translatedText
     )
-    resp = (await arq.herlock(query, user_id)).result
+    resp = (await arq.luna(query, user_id)).result
     return (
         resp
         if LANGUAGE == "tr"
