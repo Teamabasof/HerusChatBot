@@ -27,13 +27,13 @@ arq = None
 async def herlockQuery(query: str, user_id: int):
     query = (
         query
-        if LANGUAGE == "en"
-        else (await arq.translate(query, "en")).result.translatedText
+        if LANGUAGE == "tr"
+        else (await arq.translate(query, "tr")).result.translatedText
     )
     resp = (await arq.herlock(query, user_id)).result
     return (
         resp
-        if LANGUAGE == "en"
+        if LANGUAGE == "tr"
         else (
             await arq.translate(resp, LANGUAGE)
         ).result.translatedText
@@ -110,7 +110,7 @@ async def chat(_, message):
             return
     else:
         match = re.search(
-            "[.|\n]{0,}herlock[.|\n]{0,}",
+            "[.|\n]{0,}luna[.|\n]{0,}",
             message.text.strip(),
             flags=re.IGNORECASE,
         )
