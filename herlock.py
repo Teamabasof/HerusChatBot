@@ -119,7 +119,7 @@ async def chat(_, message):
     await type_and_send(message)
 
 
-@luna.on_message(
+@herlock.on_message(
     filters.private & ~filters.command("help") & ~filters.edited
 )
 async def chatpm(_, message):
