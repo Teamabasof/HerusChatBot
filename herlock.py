@@ -30,7 +30,7 @@ async def herlockQuery(query: str, user_id: int):
         if LANGUAGE == "tr"
         else (await arq.translate(query, "tr")).result.translatedText
     )
-    resp = (await arq.luna(query, user_id)).result
+    resp = (await arq.herlock(query, user_id)).result
     return (
         resp
         if LANGUAGE == "tr"
@@ -45,12 +45,12 @@ async def type_and_send(message):
     user_id = message.from_user.id if message.from_user else 0
     query = message.text.strip()
     await message._client.send_chat_action(chat_id, "typing")
-    response, _ = await gather(lunaQuery(query, user_id), sleep(2))
+    response, _ = await gather(herlockQuery(query, user_id), sleep(2))
     await message.reply_text(response)
     await message._client.send_chat_action(chat_id, "cancel")
 
 
-@luna.on_message(filters.command("repo") & ~filters.edited)
+@herlock.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
     await message.reply_text(
         "[GitHub](https://instagram.com/developer.rat)"
@@ -59,42 +59,42 @@ async def repo(_, message):
     )
 
 
-@luna.on_message(filters.command("help") & ~filters.edited)
+@herlock.on_message(filters.command("help") & ~filters.edited)
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("Noldu Yardıma mı ihtiyacın var ü")
 
 
-@luna.on_message(filters.command("start") & ~filters.edited)
+@herlock.on_message(filters.command("start") & ~filters.edited)
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("**Merhaba** [Dostum](tg://settings) Ben @SakirBey1 Tarafından Oluşturulan ChatBotum \n/komuts")
 
 
-@luna.on_message(filters.command("komuts") & ~filters.edited)
+@herlock.on_message(filters.command("komuts") & ~filters.edited)
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("**HerusChatBot Komuts Bölümü**\n=> /repo \n=> /help \n=>/developer \n => /herus")
 
 
-@luna.on_message(filters.command("developer") & ~filters.edited)
+@herlock.on_message(filters.command("developer") & ~filters.edited)
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("Sahibim Ve Geliştiricim @SakirBey1 ;)\n✨")
 
 
-@luna.on_message(filters.command("herus") & ~filters.edited)
+@herlock.on_message(filters.command("herus") & ~filters.edited)
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
     await message.reply_text("**Merhaba Ben Herus** \n@SakirBey1 Tarafından Günden Güne Geliştirilen Ve En Eğlenceli Bir ChatBotum Sizde Bota Eklenmesi İstediğiniz Özellikleri Sahibime Yazarak İlete Bilirsiniz Ayrıca Sahibim Benden Başka Bi Sürü Grub Botları Geliştiriyor @SakirBey2 Kanalına Bir Göz Atın Derim ;) \nSakirBey")
 
 
-@luna.on_message(
+@herlock.on_message(
     ~filters.private
     & filters.text
     & ~filters.command("help")
@@ -110,7 +110,7 @@ async def chat(_, message):
             return
     else:
         match = re.search(
-            "[.|\n]{0,}luna[.|\n]{0,}",
+            "[.|\n]{0,}herlock[.|\n]{0,}",
             message.text.strip(),
             flags=re.IGNORECASE,
         )
@@ -133,7 +133,7 @@ async def main():
     session = ClientSession()
     arq = ARQ(ARQ_API_BASE_URL, ARQ_API_KEY, session)
 
-    await luna.start()
+    await herlock.start()
     print(
         """
 -------------------
