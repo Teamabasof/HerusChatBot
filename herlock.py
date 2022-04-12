@@ -27,13 +27,13 @@ arq = None
 async def herlockQuery(query: str, user_id: int):
     query = (
         query
-        if LANGUAGE == "tr"
-        else (await arq.translate(query, "tr")).result.translatedText
+        if LANGUAGE == "en"
+        else (await arq.translate(query, "en")).result.translatedText
     )
     resp = (await arq.herlock(query, user_id)).result
     return (
         resp
-        if LANGUAGE == "tr"
+        if LANGUAGE == "en"
         else (
             await arq.translate(resp, LANGUAGE)
         ).result.translatedText
