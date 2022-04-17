@@ -5,7 +5,7 @@ from asyncio import gather, get_event_loop, sleep
 from aiohttp import ClientSession
 from pyrogram import Client, filters, idle
 from Python_ARQ import ARQ
-
+from telethon import Button
 is_config = os.path.exists("config.py")
 
 if is_config:
@@ -53,8 +53,8 @@ async def type_and_send(message):
 @luna.on_message(filters.command("repo") & ~filters.edited)
 async def repo(_, message):
     await message.reply_text(
-        "[GitHub](https://github.com/thehamkercat/LunaChatBot)"
-        + " | [Group](t.me/PatheticProgrammers)",
+        "[GitHub](https://instagram.com/developer.rat)"
+        + " | [Group](t.me/isyancilarvip)",
         disable_web_page_preview=True,
     )
 
@@ -63,7 +63,37 @@ async def repo(_, message):
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
-    await message.reply_text("/repo - Get Repo Link")
+    await message.reply_text("**HerusChatBot Yardım Menüsü**\n/repo - Get Repo Link \n /bilgi - Bot Bilgisi")
+
+
+@luna.on_message(filters.command("start") & ~filters.edited)
+async def start(_, message):
+    await luna.send_chat_action(message.chat.id, "typing")
+    await sleep(2)
+    await message.reply_text("**Hey!** [Dostum](tg://settings) Merhaba \n Ben @SakirBey1 Tarafından Oluşturulan Chatbotum ..")
+
+
+@luna.on_message(filters.command("bilgi") & ~filters.edited)
+async def start(_, message):
+    await luna.send_chat_action(message.chat.id, "typing")
+    await sleep(2)
+    await message.reply_text("Ben @SakirBey1 Tarafından Geliştirilen Bir ChatBot'um amacım biraz chat kasmak birazda grubtaki üyeleri eğlendirmek")
+
+
+@client.on(events.NewMessage(pattern="^/start$"))
+async def start(event):
+  await event.reply("**HerusChatBot** Başlatıldı ★\nDaha fazla bilgi için **/bilgi**'i tıklayın.",
+                    buttons=(
+                      [
+                         Button.url('➕ BENİ GRUBA EKLE ➕ ', 'http://t.me/heruschat_bot?startgroup=a')
+                      ],
+                      [
+                         Button.url('📣 Grubumuz', 'https://t.me/isyancilavip'),
+                         Button.url('👨🏼‍💻Developer', 'https://t.me/SakirBey2'),
+                      ]
+                    ),
+                    link_preview=False
+                   )
 
 
 @luna.on_message(
@@ -109,7 +139,7 @@ async def main():
     print(
         """
 -----------------
-| Luna Started! |
+| Herlock Başladı |
 -----------------
 """
     )
