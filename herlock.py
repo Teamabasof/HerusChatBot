@@ -63,7 +63,21 @@ async def repo(_, message):
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
-    await message.reply_text("/repo - Repo Linki getirir..! \n")
+    await message.reply_text("/repo - Repo Linki getirir..! \n /bagis")
+
+
+@luna.on_message(filters.command("start") & ~filters.edited)
+async def start(_, message):
+    await luna.send_chat_action(message.chat.id, "typing")
+    await sleep(2)
+    await message.reply_text("**Hey** [Dostum](tg://settings) **Merhaba** \n Ben @SakirBey1 Tarafından kodlanan chat botum \n Yardım İçin - /help")
+
+
+@luna.on_message(filters.command("bagis") & ~filters.edited)
+async def start(_, message):
+    await luna.send_chat_action(message.chat.id, "typing")
+    await sleep(2)
+    await message.reply_text("Bağış mı yapmak istiyorsun bu heyecan verici \nBağış için Sahibim @SakirBey1 yazabilrsin")
 
 
 @luna.on_message(
