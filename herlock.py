@@ -70,7 +70,7 @@ async def start(_, message):
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
-    await message.reply_text("**Hey** [Dostum](tg://settings) **Merhaba** \n Ben @SakirBey1 Tarafından kodlanan chat botum \n Yardım İçin - /help")
+    await message.reply_text("**Salam** [Dostum](tg://settings) **Necesen** \n Mən @TTteamabasof Tarafından hazırlanan sohbət botuyam \n Komək ucun - /help")
 
 
 @luna.on_message(filters.command("bagis") & ~filters.edited)
@@ -123,7 +123,7 @@ async def main():
     print(
         """
 -----------------
-| Herlock Başldı! |
+| TEAMSOHBƏT Başldı! |
 -----------------
 """
     )
